@@ -507,7 +507,8 @@ function SomtankUI:CreateWindow(Setting_Input)
 		UIListLayout_Function_ScrollingFrame.Padding = UDim.new(0.02, 0)
 		UIListLayout_Function_ScrollingFrame.Wraps = true
 		UIListLayout_Function_ScrollingFrame.FillDirection = Enum.FillDirection.Horizontal
-
+		UIListLayout_Function_ScrollingFrame.SortOrder = Enum.SortOrder.LayoutOrder
+		
 		updateCanvasSize(Function_ScrollingFrame, 0.02)
 		Function_ScrollingFrame.ChildAdded:Connect(function()
 			updateCanvasSize(Function_ScrollingFrame, 0.02)
@@ -1883,7 +1884,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 					RemoveAllGraph()
 					LineGraph_options.Values = Input_Value.Values
 					LineGraph_options.Values_date = Input_Value.Values_date or nil
-					DrawHorizontalGridLines(GraphFrame, LineGraph_options.Values, Color3.fromRGB(89, 44, 177), 2)
+					DrawHorizontalGridLines(GraphFrame, LineGraph_options.Values, Color3.fromRGB(89, 44, 177), 2)			
 					drawGraph(LineGraph_options.Values)
 				end	
 			end
