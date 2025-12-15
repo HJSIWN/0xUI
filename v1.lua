@@ -179,10 +179,10 @@ local SomtankTheameAll = {
 		TextColor2 = Color3.new(0.752941, 0.47451, 1),
 		UIStroke1 = Color3.new(0.054902, 0.0235294, 0.101961),
 		UIStroke2 = Color3.new(0.588235, 0.4, 0.85098),
-		
+
 		BackgroundColor1 = Color3.new(0.196078, 0.113725, 0.309804),
 		BackgroundColor2 = Color3.new(0.584314, 0.290196, 0.945098),
-		
+
 	},
 	Holloween = {
 		BackgroundImage = "rbxassetid://121558710773414",
@@ -197,11 +197,11 @@ local SomtankTheameAll = {
 		TextColor2 = Color3.new(1, 0.827451, 0.133333),
 		UIStroke1 = Color3.new(0.101961, 0.0509804, 0),
 		UIStroke2 = Color3.new(0.85098, 0.286275, 0.0627451),
-		
-		
+
+
 		BackgroundColor1 = Color3.new(0.309804, 0.188235, 0.054902),
 		BackgroundColor2 = Color3.new(0.945098, 0.631373, 0.27451),
-		
+
 	},
 }
 
@@ -260,11 +260,11 @@ end
 
 function SomtankUI:CreateWindow(Setting_Input)
 	task.wait()
-	
+
 	if _G.NoSoundWindow then
 		_G.NoSoundWindow = false
 	end
-	
+
 	local ScreenGui = Instance.new("ScreenGui")
 	ScreenGui.Name = "SomtankUI_"..math.random(0,99)
 	ScreenGui.ResetOnSpawn = false
@@ -315,7 +315,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 	BGIcon.Image = Setting_Input and Setting_Input.Icon or "rbxassetid://108281745434228"
 	BGIcon.Name = "Icon"
 	Instance.new("UIAspectRatioConstraint", BGIcon)
-	
+
 	----- Main Scale Function
 	local dragging, startPos, startScale = false, nil, nil	
 	ScalMainFrame.InputBegan:Connect(function(input)
@@ -343,7 +343,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 		end
 	end)
 	----- End Main Scale Function
-	
+
 	local TopFrame = Instance.new("Frame", BGFrame)
 	TopFrame.Position = UDim2.new(0.207, 0,0.031, 0)
 	TopFrame.Size = UDim2.new(0, 391,0, 37)	
@@ -397,7 +397,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 	AddJipaTaUI(Instance.new("UIStroke"), TitleMainFrame, NowTheame.UIStroke1, 2.7, 0.52)
 	MakeDraggable(TitleMainFrame, BGFrame)
 	MakeDraggable(TopFrame, BGFrame)
-	
+
 	local Mode_ScrollingFrame = Instance.new("ScrollingFrame", BGFrame)
 	Mode_ScrollingFrame.Size = UDim2.new(0, 179,0, 208)
 	Mode_ScrollingFrame.Position = UDim2.new(0.034, 0,0.325, 0)
@@ -410,46 +410,46 @@ function SomtankUI:CreateWindow(Setting_Input)
 	Mode_ScrollingFrame.ScrollBarImageColor3 = Color3.new(0.494118, 0.494118, 0.494118)
 	local UIListLayout_Mode_ScrollingFrame = Instance.new("UIListLayout", Mode_ScrollingFrame)
 	UIListLayout_Mode_ScrollingFrame.Padding = UDim.new(0.01, 0)
-	
+
 	local Modes = {}
 	Modes.Gui = ScreenGui
-	
+
 	_G.ModesOnoff = {}
 	_G.ModesTitle = {}
 	_G.ModesNext = {}
 	_G.ModesNeedOn = {}
-	
+
 	local SelectFrameMain = Instance.new("Frame", BGFrame)
 	SelectFrameMain.Position = UDim2.new(0.207, 0,0.154, 0)
 	SelectFrameMain.Size = UDim2.new(0, 390,0, 262)
 	SelectFrameMain.BackgroundTransparency = 1
-	
+
 	function Modes:Tab(options)		
 		task.wait()
-		
+
 		local MainFrame = Instance.new("Frame", Mode_ScrollingFrame)
 		MainFrame.Size = UDim2.new(1, 0,0.08, 0)	
 		MainFrame.BackgroundTransparency = 1
 		MainFrame.Name = options and options.Title or "Tab"
-		
+
 		local BGFrame_ = Instance.new("Frame", MainFrame)
 		BGFrame_.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 		BGFrame_.Size = UDim2.new(0.301, 0,1, 0)
 		BGFrame_.ZIndex = 9
-		
+
 		local BGFrame_UICorner = Instance.new("UICorner", BGFrame_)
 		BGFrame_UICorner.CornerRadius = UDim.new(0.3, 0)
-		
+
 		local BGFrame_UIGradient = Instance.new("UIGradient", BGFrame_)
 		BGFrame_UIGradient.Color = NowTheame.ColorSequence
-		
+
 		local Button = Instance.new("TextButton", MainFrame)
 		Button.Size = UDim2.new(0.300, 0,1, 0)
 		Button.BackgroundTransparency = 1
 		Button.TextTransparency = 1
 		Button.Name = "Button"
 		Button.ZIndex = 10
-		
+
 		local IconBG = Instance.new("Frame", MainFrame)
 		IconBG.Position = UDim2.new(0.02, 0,0.048, 0)
 		IconBG.Size = UDim2.new(0, 47,0, 62)
@@ -459,7 +459,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 		IconBG.ZIndex = 10
 		Instance.new("UIAspectRatioConstraint", IconBG)
 		local IconBG_UICorner = AddJipaTaUI(Instance.new("UICorner"), IconBG, 1, 0)
-		
+
 		local Title = Instance.new("TextLabel", IconBG)
 		Title.Size = UDim2.new(0, 0,0, 45)
 		Title.Position = UDim2.new(1.07, 0,0.018, 0)
@@ -472,15 +472,15 @@ function SomtankUI:CreateWindow(Setting_Input)
 		Title.ZIndex = 10
 		Title.Visible = true
 		local UIStroke_Title = AddJipaTaUI(Instance.new("UIStroke"), Title, NowTheame.UIStroke1, 2.7, 0.52)
-		
+
 		_G.ModesTitle[options.Title] = options.Title
-		
+
 		local RealIcon, TweenModeFrame, ModeName = nil, nil, options.Title.."_Function"
-		
+
 		if GetIcons and options.Icon then
 			SetIcon(options.Icon, IconBG, UDim2.new(1,0,1,0), UDim2.new(0,0,0,0), Color3.new(0.67451, 0.513725, 1), 10)
 		end
-		
+
 		local function CloseChilSelectFrameMain(ModeNameNeed)
 			if not ModeNameNeed then ModeNameNeed = "S" end
 			for _, item in ipairs(SelectFrameMain:GetChildren()) do
@@ -493,7 +493,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 				end
 			end
 		end
-		
+
 		local Function_ScrollingFrame = Instance.new("ScrollingFrame", SelectFrameMain)
 		Function_ScrollingFrame.Size = UDim2.new(1,0,1,0)
 		Function_ScrollingFrame.Position = UDim2.new(0, 0,0, 0)
@@ -507,7 +507,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 		UIListLayout_Function_ScrollingFrame.Padding = UDim.new(0.02, 0)
 		UIListLayout_Function_ScrollingFrame.Wraps = true
 		UIListLayout_Function_ScrollingFrame.FillDirection = Enum.FillDirection.Horizontal
-		
+
 		updateCanvasSize(Function_ScrollingFrame, 0.02)
 		Function_ScrollingFrame.ChildAdded:Connect(function()
 			updateCanvasSize(Function_ScrollingFrame, 0.02)
@@ -637,32 +637,32 @@ function SomtankUI:CreateWindow(Setting_Input)
 				, 0.4, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
 			end)
 		end)
-		
+
 		-- End of Function_ScrollingFrame
-		
+
 		local Functions = {}
 		Functions.Gui = Function_ScrollingFrame
 
 		function Functions:MiniTab(options)
 			task.wait()
-			
+
 			local BGFuncFrame = Instance.new("Frame", Function_ScrollingFrame)
 			BGFuncFrame.Size = UDim2.new(0, 191,0, 210)
 			BGFuncFrame.BackgroundColor3 = NowTheame.TextColor1
 			BGFuncFrame.BackgroundTransparency = 0.5			
 			BGFuncFrame.Name = "BGFuncFrame"
 			Instance.new("UICorner", BGFuncFrame)
-			
+
 			local UIListLayout_BGFuncFrame = Instance.new("UIListLayout", BGFuncFrame)
 			UIListLayout_BGFuncFrame.Padding = UDim.new(0.02, 0)
 			UIListLayout_BGFuncFrame.SortOrder = Enum.SortOrder.LayoutOrder
-			
+
 			local TitleFrame = Instance.new("Frame", BGFuncFrame)
 			TitleFrame.Size = UDim2.new(1, 0,0.18, 0)
 			TitleFrame.BackgroundColor3 = NowTheame.TextColor1
 			TitleFrame.Name = "TitleFrame"
 			Instance.new("UICorner", TitleFrame)
-			
+
 			local Title_Textlabel = Instance.new("TextLabel", TitleFrame)
 			Title_Textlabel.Size = UDim2.new(0.975, 0,0.9, 0)
 			Title_Textlabel.Position = UDim2.new(0.015, 0,0.05, 0)
@@ -676,25 +676,25 @@ function SomtankUI:CreateWindow(Setting_Input)
 			AddJipaTaUI(Instance.new("UIStroke"), Title_Textlabel, NowTheame.UIStroke1, 2.7, 0.52)
 			local UIStroke_Title_Textlabel = AddJipaTaUI(Instance.new("UIStroke"), Title_Textlabel, NowTheame.UIStroke2, 1.6, 0.52)
 			UIStroke_Title_Textlabel.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-			
+
 			-- End of TitleFrame
-			
+
 			local MiniFunction = {}
 			MiniFunction.Gui = Function_ScrollingFrame
 
 			function MiniFunction:Click(options)
 				task.wait()
-				
+
 				local Click_options, NameFunction = {}, options and options.Title
 				Click_options.Callback = options.Callback
-				
+
 				local FuncClick = Instance.new("Frame", BGFuncFrame)
 				FuncClick.Size = UDim2.new(1, 0,0.185, 0)
 				FuncClick.BackgroundTransparency = 0.6
 				FuncClick.BackgroundColor3 = NowTheame.BackgroundColor2
 				FuncClick.Name = "Func"..NameFunction
 				Instance.new("UICorner", FuncClick)
-				
+
 				local Title_Func = Instance.new("TextLabel", FuncClick)
 				Title_Func.Size = UDim2.new(0.77, 0,0.9, 0)
 				Title_Func.Position = UDim2.new(0.02, 0,0.06, 0)
@@ -706,7 +706,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 				Title_Func.ZIndex = 1
 				Title_Func.TextXAlignment = Enum.TextXAlignment.Left
 				AddJipaTaUI(Instance.new("UIStroke"), Title_Func, NowTheame.UIStroke1, 2.7, 0.52)
-				
+
 				local Button = Instance.new("ImageButton", FuncClick)
 				Button.Position = UDim2.new(0.8, 0,0.06, 0)
 				Button.Size = UDim2.new(0.18, 0,0.9, 0)	
@@ -714,9 +714,9 @@ function SomtankUI:CreateWindow(Setting_Input)
 				Button.ImageColor3 = Color3.new(0.733333, 0.6, 1)
 				Button.Image = "rbxassetid://75478984455074"
 				Button.Name = NameFunction
-				
+
 				FuncClick:SetAttribute("Stage", false)
-				
+
 				Button.Activated:Connect(function()
 					AnimateButton(Button, true)
 					Button.ImageColor3 = Color3.new(1, 1, 1)
@@ -725,7 +725,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 						Click_options.Callback()
 					end
 				end)
-				
+
 				FuncClick:GetAttributeChangedSignal("Stage"):Connect(function()
 					if FuncClick:GetAttribute("Stage") then
 						if Click_options.Callback then
@@ -734,13 +734,13 @@ function SomtankUI:CreateWindow(Setting_Input)
 						FuncClick:SetAttribute("Stage", false)
 					end
 				end)
-				
+
 				return Click_options
 			end
-			
+
 			function MiniFunction:Input(options)
 				task.wait()
-				
+
 				local Input_options, NameFunction = {}, options and options.Title or "ห๊ะ"
 				Input_options.Callback = options.Callback
 
@@ -775,15 +775,15 @@ function SomtankUI:CreateWindow(Setting_Input)
 				TextBox.PlaceholderText = options and options.Placeholder or "ใส่ค่าตรงนี้..."
 				TextBox.Name = NameFunction
 				Instance.new("UICorner", TextBox)
-				
+
 				FuncClick:SetAttribute("Value", TextBox.Text)
-				
+
 				TextBox:GetPropertyChangedSignal("Text"):Connect(function()
 					if Input_options.Callback then
 						Input_options.Callback(TextBox.Text)
 					end
 				end)
-				
+
 				FuncClick:GetAttributeChangedSignal("Value"):Connect(function()
 					TextBox.Text = FuncClick:GetAttribute("Value")
 					if Input_options.Callback then
@@ -793,16 +793,16 @@ function SomtankUI:CreateWindow(Setting_Input)
 
 				return Input_options
 			end
-			
+
 			_G.ToggleButtonSomtank = {}
-			
+
 			function MiniFunction:Toggle(options)
 				task.wait()
-				
+
 				local Toggle_options, NameFunction, StageText = {}, options and options.Title or "ห๊ะ", nil
 				Toggle_options.Callback = options.Callback
 				Toggle_options.Stage = options and options.Stage or false
-				
+
 				if not StageText and Toggle_options.Stage then
 					if Toggle_options.Stage then
 						StageText = "เปิด"
@@ -836,14 +836,14 @@ function SomtankUI:CreateWindow(Setting_Input)
 				ToggleBg.BackgroundColor3 = NowTheame.BackgroundColor1
 				ToggleBg.Name = "ToggleBg"
 				Instance.new("UICorner", ToggleBg)
-				
+
 				local Toggle = Instance.new("Frame", ToggleBg)
 				Toggle.Size = UDim2.new(0, 17,0, 21)
 				Toggle.Position = UDim2.new(0, 0,-0.152, 0)
 				Toggle.BackgroundColor3 = NowTheame.BackgroundColor2
 				Toggle.Name = "Toggle"
 				Instance.new("UICorner", Toggle)
-				
+
 				local TextLabel_ValueOfToggle = Instance.new("TextLabel", Toggle)
 				TextLabel_ValueOfToggle.Size = UDim2.new(0, 51,0, 16)
 				TextLabel_ValueOfToggle.Position = UDim2.new(-1.015, 0,-0.971, 0)
@@ -856,7 +856,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 				TextLabel_ValueOfToggle.ZIndex = 1
 				TextLabel_ValueOfToggle.FontFace.Weight = Enum.FontWeight.Bold
 				local UIStroke_TextLabel_ValueOfToggle = AddJipaTaUI(Instance.new("UIStroke"), TextLabel_ValueOfToggle, NowTheame.UIStroke1, 2.7, 1)
-				
+
 				local Button = Instance.new("TextButton", FuncClick)
 				Button.Size = UDim2.new(0, 38,0, 28)
 				Button.Position = UDim2.new(0.787, 0,0.113, 0)
@@ -864,9 +864,9 @@ function SomtankUI:CreateWindow(Setting_Input)
 				Button.TextTransparency = 1
 				Button.Name = "Button"..NameFunction
 				Button.ZIndex = 3
-				
+
 				FuncClick:SetAttribute("Stage", false)
-				
+
 				local function MakeToggle(input)
 					if input then
 						Toggle.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -888,7 +888,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 						TextLabel_ValueOfToggle.Text = "ปิด"
 					end
 				end
-				
+
 				Button.Activated:Connect(function()
 					if _G.ToggleButtonSomtank then
 						_G.ToggleButtonSomtank[Button.Name] = not _G.ToggleButtonSomtank[Button.Name]
@@ -899,7 +899,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 						end
 					end
 				end)
-				
+
 				Button.MouseEnter:Connect(function()
 					TweenFrame(TextLabel_ValueOfToggle, {TextTransparency = 0}, 0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
 					TweenFrame(UIStroke_TextLabel_ValueOfToggle, {Transparency = 0.52}, 0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
@@ -919,7 +919,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 						TextLabel_ValueOfToggle.Text = "ปิด"
 					end
 				end)
-				
+
 				FuncClick:GetAttributeChangedSignal("Stage"):Connect(function()
 					if FuncClick:GetAttribute("Stage") then
 						MakeToggle(true)
@@ -930,17 +930,17 @@ function SomtankUI:CreateWindow(Setting_Input)
 
 				return Toggle_options
 			end
-			
+
 			function MiniFunction:Slider(options)
 				task.wait()
-				
+
 				local Slider_options, NameFunction = {}, options and options.Title or "ห๊ะ"
 				Slider_options.Callback = options.Callback
 				Slider_options.SlideStep = options.Value.Step
 				Slider_options.SlideMin = options.Value.Min
 				Slider_options.SlideMax = options.Value.Max
 				Slider_options.SlideDefault = options.Value.Default
-				
+
 				local FuncClick = Instance.new("Frame", BGFuncFrame)
 				FuncClick.Size = UDim2.new(1, 0,0.185, 0)
 				FuncClick.BackgroundTransparency = 0.6
@@ -955,14 +955,14 @@ function SomtankUI:CreateWindow(Setting_Input)
 				SlideBar.BackgroundColor3 = NowTheame.BackgroundColor2
 				SlideBar.Name = "Func"..NameFunction
 				Instance.new("UICorner", SlideBar)
-				
+
 				local Slide = Instance.new("Frame", SlideBar)
 				Slide.Size = UDim2.new(0, 12,0, 23)
 				Slide.Position = UDim2.new(0, 0,-0.484, 0)
 				Slide.BackgroundColor3 = NowTheame.BackgroundColor2
 				Slide.Name = "Func"..NameFunction
 				Instance.new("UICorner", Slide)
-				
+
 				local Title_Func = Instance.new("TextLabel", Slide)
 				Title_Func.Size = UDim2.new(0, 51,0, 16)
 				Title_Func.Position = UDim2.new(-1.681, 0,-0.836, 0)
@@ -975,7 +975,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 				Title_Func.TextTransparency = 1
 				Title_Func.Name = "TextLabel_ValueOfSlide"
 				local UIStroke_Title_Func = AddJipaTaUI(Instance.new("UIStroke"), Title_Func, NowTheame.UIStroke1, 2.7, 1)
-				
+
 				local ResetButton = Instance.new("ImageButton", FuncClick)
 				ResetButton.Position = UDim2.new(0.8, 0,0.06, 0)
 				ResetButton.Size = UDim2.new(0.18, 0,0.9, 0)
@@ -983,7 +983,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 				ResetButton.ImageColor3 = Color3.new(0.733333, 0.6, 1)
 				ResetButton.Image = "rbxassetid://87453335489922"
 				ResetButton.Name = "ResetButton"
-				
+
 				local Button = Instance.new("TextButton", Slide)
 				Button.Size = UDim2.new(0, 26,0, 38)
 				Button.Position = UDim2.new(-0.585, 0,-0.343, 0)
@@ -991,9 +991,9 @@ function SomtankUI:CreateWindow(Setting_Input)
 				Button.TextTransparency = 1
 				Button.Name = "Button"..NameFunction
 				Button.ZIndex = 3
-				
+
 				FuncClick:SetAttribute("Value", Slider_options.SlideDefault)
-								
+
 				local barSize, OldThisSlideValue = SlideBar.AbsoluteSize.X, 0
 
 				local function positionToValue(x)
@@ -1002,17 +1002,17 @@ function SomtankUI:CreateWindow(Setting_Input)
 					local steppedValue = math.floor(rawValue / Slider_options.SlideStep + 0.5) * Slider_options.SlideStep
 					return math.clamp(steppedValue, Slider_options.SlideMin, Slider_options.SlideMax)
 				end
-				
+
 				local function valueToPosition(value)
 					local ratio = (value - Slider_options.SlideMin) / (Slider_options.SlideMax - Slider_options.SlideMin)
 					return UDim2.new(0, barSize * ratio, Slide.Position.Y.Scale, Slide.Position.Y.Offset)
 				end
-				
+
 				local function formatNumber(num)
 					local result = tonumber(string.format("%.2f", num))
 					return tonumber(tostring(result))
 				end
-				
+
 				local function updateSlide(value)
 					Slide.Position = valueToPosition(value)
 					Title_Func.Text = tostring(formatNumber(value))
@@ -1062,7 +1062,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 						startDrag(input)						
 					end
 				end)
-				
+
 				Button.MouseEnter:Connect(function()
 					TweenFrame(Title_Func, {TextTransparency = 0}, 0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
 					TweenFrame(UIStroke_Title_Func, {Transparency = 0.52}, 0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
@@ -1070,14 +1070,14 @@ function SomtankUI:CreateWindow(Setting_Input)
 						Slide:SetAttribute("HoverValue", Slide:GetAttribute("Value"))
 					end
 				end)
-				
+
 				Button.MouseLeave:Connect(function()
 					if Slide:GetAttribute("Value") and Slide:GetAttribute("HoverValue") and Slide:GetAttribute("HoverValue") == Slide:GetAttribute("Value") then
 						TweenFrame(Title_Func, {TextTransparency = 1}, 0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
 						TweenFrame(UIStroke_Title_Func, {Transparency = 1}, 0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
 					end
 				end)
-				
+
 				ResetButton.Activated:Connect(function()
 					updateSlide(Slider_options.SlideDefault)
 					AnimateButton(ResetButton, true)
@@ -1093,16 +1093,16 @@ function SomtankUI:CreateWindow(Setting_Input)
 						TweenFrame(UIStroke_Title_Func, {Transparency = 1}, 0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
 					end)
 				end)
-				
+
 				FuncClick:GetAttributeChangedSignal("Value"):Connect(function()
 					if FuncClick:GetAttribute("Value") then
 						updateSlide(FuncClick:GetAttribute("Value"))
 					end
 				end)
-				
+
 				return Slider_options
 			end
-			
+
 			function MiniFunction:SliderEnum(options)
 				task.wait()
 
@@ -1111,7 +1111,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 				Slider_options.EnumList = options.Options or {"Option1", "Option2", "Option3"}
 				Slider_options.DefaultIndex = options.Default or 1
 				local totalOptions = (options.Options and #options.Options) or 1
-				
+
 				local FuncClick = Instance.new("Frame", BGFuncFrame)
 				FuncClick.Size = UDim2.new(1, 0, 0.185, 0)
 				FuncClick.BackgroundTransparency = 0.6
@@ -1207,7 +1207,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 						startDrag(input)
 					end
 				end)
-				
+
 				Button.MouseEnter:Connect(function()
 					TweenFrame(Title_Func, {TextTransparency = 0}, 0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
 					TweenFrame(UIStroke_Title_Func, {Transparency = 0.52}, 0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
@@ -1220,23 +1220,23 @@ function SomtankUI:CreateWindow(Setting_Input)
 
 				return Slider_options
 			end
-			
+
 			_G.NowThisFrameIsOpenDropdown = nil
-									
+
 			function MiniFunction:Dropdown(options)
 				task.wait()
-				
+
 				local Dropdown_options, NameFunction = {}, options and options.Title
 				Dropdown_options.Callback = options.Callback
-				
+
 				Dropdown_options.Value = options.Value
 				Dropdown_options.Values = options.Value.Values
 				Dropdown_options.SelectNow = options.Value.SelectNow
 				Dropdown_options.Multi = options.Value.Multi
 				Dropdown_options.AllowNone = options.Value.AllowNone
-				
+
 				Dropdown_options.OldValue = nil
-				
+
 				local FuncClick = Instance.new("Frame", BGFuncFrame)
 				FuncClick.Size = UDim2.new(1, 0,0.185, 0)
 				FuncClick.BackgroundTransparency = 0.6
@@ -1255,7 +1255,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 				Title_Func.ZIndex = 1
 				Title_Func.TextXAlignment = Enum.TextXAlignment.Left
 				AddJipaTaUI(Instance.new("UIStroke"), Title_Func, NowTheame.UIStroke1, 2.7, 0.52)
-				
+
 				local FakeButtonFrame = Instance.new("Frame", FuncClick)
 				FakeButtonFrame.Size = UDim2.new(0.486, 0,0.9, 0)
 				FakeButtonFrame.Position = UDim2.new(0.484, 0,0.06, 0)
@@ -1275,7 +1275,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 				FakeButtonFrame_Text.ZIndex = 1
 				FakeButtonFrame_Text.TextXAlignment = Enum.TextXAlignment.Left
 				AddJipaTaUI(Instance.new("UIStroke"), Title_Func, NowTheame.UIStroke1, 2.7, 0.52)
-								
+
 				local ButtonFake = Instance.new("ImageButton", FuncClick)
 				ButtonFake.Position = UDim2.new(0.8, 0,0.06, 0)
 				ButtonFake.Size = UDim2.new(0.18, 0,0.9, 0)	
@@ -1283,14 +1283,14 @@ function SomtankUI:CreateWindow(Setting_Input)
 				ButtonFake.ImageColor3 = Color3.new(1, 1, 1)
 				ButtonFake.Image = "rbxassetid://95008508528230"
 				ButtonFake.Name = NameFunction
-				
+
 				local Button = Instance.new("ImageButton", FakeButtonFrame)
 				Button.Size = UDim2.new(1, 0,1, 0)	
 				Button.BackgroundTransparency = 1
 				Button.Image = ""
 				Button.Name = "Button"
 				Button.ZIndex = 5
-				
+
 				local Select_ScrollingFrame = Instance.new("ScrollingFrame", BGFrame)
 				Select_ScrollingFrame.Size = UDim2.new(0.179, 0,4.435, 0)
 				Select_ScrollingFrame.Position = UDim2.new(0.772, 0,0.283, 0)
@@ -1305,7 +1305,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 				local FolderDropDown = Instance.new("Folder", Select_ScrollingFrame)
 				FolderDropDown.Name = "FolderDropDown_Select"
 				FolderDropDown:SetAttribute("DropdownOwner", NameFunction)
-				
+
 				local function CallbackDropdown()
 					local AllDropdown = {}
 					for i, Object in pairs(FolderDropDown:GetChildren()) do
@@ -1319,7 +1319,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 						Dropdown_options.Callback(AllDropdown)
 					end	
 				end
-				
+
 				local function MoveFrameToMatch(Frame1, Frame2, speed)
 					if not (Frame1 and Frame2) then return end
 					local targetPos = Frame2.AbsolutePosition
@@ -1329,7 +1329,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 					local tween = TweenService:Create(Frame1, tweenInfo, {Position = relativePos})
 					tween:Play()
 				end
-								
+
 				local function UpdateSelect()
 					for i,v in pairs(Select_ScrollingFrame:GetChildren()) do
 						if v:IsA("TextButton") then
@@ -1430,7 +1430,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 						wait(0.08)
 					end
 				end
-				
+
 				local function CloseSelect(ScrollingFrame)
 					if not ScrollingFrame then return end
 					local LastTween = nil
@@ -1449,7 +1449,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 					end
 					ScrollingFrame.Visible = false
 				end
-				
+
 				Function_ScrollingFrame:GetPropertyChangedSignal("Visible"):Connect(function()
 					if not Function_ScrollingFrame.Visible then
 						if _G.NowThisFrameIsOpenDropdown then
@@ -1460,7 +1460,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 						end	
 					end
 				end)
-				
+
 				Button.MouseButton1Click:Connect(function()
 					Select_ScrollingFrame:SetAttribute("IsOpen", not Select_ScrollingFrame:GetAttribute("IsOpen"))
 					if Select_ScrollingFrame:GetAttribute("IsOpen") then
@@ -1479,32 +1479,33 @@ function SomtankUI:CreateWindow(Setting_Input)
 						_G.NowThisFrameIsOpenDropdown = Select_ScrollingFrame						
 					end
 				end)
-				
+
 				for i,v1 in pairs(Dropdown_options.Values) do
+					v1 = tostring(v1:gsub("%s+", ""))
 					FuncClick:SetAttribute(v1, false)
-					FuncClick:GetAttributeChangedSignal(v1):Connect(function()						
+					FuncClick:GetAttributeChangedSignal(v1):Connect(function()
 						for i,v in pairs(FolderDropDown:GetChildren()) do
 							if v.Name == v1 then
 								if FuncClick:GetAttribute(v1) then
 									v.Value = true
 								else
 									v.Value = false
-								end								
+								end
 							end
 						end
 						UpdateSelect()
 					end)
 				end
-				
+
 				function Dropdown_options:ShowThisItem(Values)
 					if Values then
 						Dropdown_options.Values = Values
 					end
 				end
-				
+
 				return Dropdown_options
 			end
-			
+
 			function MiniFunction:Frame3DShow(options)
 				task.wait()
 
@@ -1515,7 +1516,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 				Frame3DShow_options.Spin = options.Setting.Spin
 				Frame3DShow_options.Height = options.Setting.Height
 				Frame3DShow_options.SpinSpeed = options.Setting.SpinSpeed
-				
+
 				local FuncClick = Instance.new("Frame", BGFuncFrame)
 				FuncClick.Size = UDim2.new(1, 0,0.595, 0)
 				FuncClick.BackgroundTransparency = 0.6
@@ -1542,7 +1543,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 				Button.ImageColor3 = Color3.new(0.733333, 0.6, 1)
 				Button.Image = "rbxassetid://97010139919322"
 				Button.Name = NameFunction
-				
+
 				local ViewportFrame = Instance.new("ViewportFrame", FuncClick)
 				ViewportFrame.Size = UDim2.new(0, 176,0, 84)
 				ViewportFrame.Position = UDim2.new(0.035, 0,0.265, 0)
@@ -1556,9 +1557,9 @@ function SomtankUI:CreateWindow(Setting_Input)
 				local WorldModel = Instance.new("WorldModel", ViewportFrame)
 				local Camera = Instance.new("Camera", FuncClick)
 				ViewportFrame.CurrentCamera = Camera
-								
+
 				local NowShowItem, angle = nil, 0
-				
+
 				Button.Activated:Connect(function()
 					FuncClick:SetAttribute("Hide", not FuncClick:GetAttribute("Hide"))
 					if FuncClick:GetAttribute("Hide") then
@@ -1569,7 +1570,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 						ViewportFrame.Visible = false
 					end
 				end)
-				
+
 				local function SetShowThis(Item)
 					if NowShowItem then
 						NowShowItem:Destroy()
@@ -1606,7 +1607,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 						end)
 					end
 				end
-				
+
 				Function_ScrollingFrame:GetPropertyChangedSignal("Visible"):Connect(function()					
 					if Function_ScrollingFrame.Visible then
 						FuncClick:SetAttribute("Hide", true)
@@ -1614,7 +1615,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 						FuncClick:SetAttribute("Hide", false)
 					end
 				end)
-				
+
 				if Frame3DShow_options and Frame3DShow_options.ItemShow then
 					if Frame3DShow_options.ItemShow then
 						local ItemToShow = Instance.new("Model", WorldModel)
@@ -1627,7 +1628,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 						SetShowThis(ItemToShow)
 					end
 				end
-				
+
 				function Frame3DShow_options:ShowThisItem(Item)
 					if Item then
 						local ItemToShow = Instance.new("Model", WorldModel)
@@ -1648,10 +1649,10 @@ function SomtankUI:CreateWindow(Setting_Input)
 
 				return Frame3DShow_options
 			end
-			
+
 			return MiniFunction
 		end
-		
+
 		function Functions:LineGraph(options)
 			task.wait()
 
@@ -1660,7 +1661,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 			LineGraph_options.Values = options.Values
 			LineGraph_options.Description = options.Description
 			LineGraph_options.Values_date = options.Values_date or nil
-			
+
 			local BGFuncFrame = Instance.new("Frame", Function_ScrollingFrame)
 			BGFuncFrame.Size = UDim2.new(0, 388,0, 222)
 			BGFuncFrame.BackgroundColor3 = Color3.fromRGB(48, 35, 75)
@@ -1688,13 +1689,13 @@ function SomtankUI:CreateWindow(Setting_Input)
 			AddJipaTaUI(Instance.new("UIStroke"), Title_Textlabel, NowTheame.UIStroke1, 2.7, 0.52)
 			local UIStroke_Title_Textlabel = AddJipaTaUI(Instance.new("UIStroke"), Title_Textlabel, NowTheame.UIStroke2, 1.6, 0.52)
 			UIStroke_Title_Textlabel.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-			
+
 			local GraphFrame = Instance.new("Frame", TitleFrame)
 			GraphFrame.Size = UDim2.new(0, 378,0, 178)
 			GraphFrame.Position = UDim2.new(0.012, 0,1.086, 0)
 			GraphFrame.BackgroundTransparency = 0.95
 			GraphFrame.Name = "GraphFrame"
-			
+
 			local Description = Instance.new("TextLabel", GraphFrame)
 			Description.Size = UDim2.new(0.791, 0,0.107, 0)
 			Description.Position = UDim2.new(0.008, 0,-0, 0)
@@ -1707,7 +1708,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 			Description.ZIndex = 3
 			Description.TextXAlignment = Enum.TextXAlignment.Left
 			AddJipaTaUI(Instance.new("UIStroke"), Description, NowTheame.UIStroke1, 2.7, 0.52)
-						
+
 			local ButtonCheck = Instance.new("ImageButton", BGFuncFrame)
 			ButtonCheck.Size = UDim2.new(0, 385,0, 216)	
 			ButtonCheck.Position = UDim2.new(0.007, 0,0.004, 0)
@@ -1715,10 +1716,10 @@ function SomtankUI:CreateWindow(Setting_Input)
 			ButtonCheck.Image = ""
 			ButtonCheck.Name = "Button"
 			ButtonCheck.ZIndex = 5
-			
+
 			local LineGraphFunction = {}
 			LineGraphFunction.Gui = Function_ScrollingFrame			
-			
+
 			local Table_Point = {}
 			local Table_Line = {}
 			local Table_HLineLabel = {}
@@ -1868,7 +1869,7 @@ function SomtankUI:CreateWindow(Setting_Input)
 				Table_Line = {}
 				Table_HLineLabel = {}
 			end
-			
+
 			ButtonCheck.MouseEnter:Connect(function()
 				if not ButtonCheck:GetAttribute("FirstLoadGraph") then
 					ButtonCheck:SetAttribute("FirstLoadGraph", true)
@@ -1876,24 +1877,24 @@ function SomtankUI:CreateWindow(Setting_Input)
 					drawGraph(LineGraph_options.Values)
 				end
 			end)
-			
+
 			function LineGraphFunction:UpdateGraph(Input_Value)
 				if Input_Value and Input_Value.Values then
 					RemoveAllGraph()
 					LineGraph_options.Values = Input_Value.Values
 					LineGraph_options.Values_date = Input_Value.Values_date or nil
-					DrawHorizontalGridLines(GraphFrame, LineGraph_options.Values, Color3.fromRGB(89, 44, 177), 2)			
+					DrawHorizontalGridLines(GraphFrame, LineGraph_options.Values, Color3.fromRGB(89, 44, 177), 2)
 					drawGraph(LineGraph_options.Values)
 				end	
 			end
-			
+
 			return LineGraphFunction
 		end
-		
-		
+
+
 		return Functions
 	end
-	
+
 	return Modes
 end
 
